@@ -41,9 +41,11 @@ create table PG_USER.testtable (
 	updatedt timestamp not null
 );
 
-
-
 insert into PG_USER.testtable (name, value, updatedt) values ('CPU', '256', now());
 insert into PG_USER.testtable (name, value, updatedt) values ('MEM', '512m', now());
 
 grant all on PG_USER.testtable to PG_PRIMARY_USER;
+
+
+alter table geometry_columns owner to PG_USER;
+alter table spatial_ref_sys owner to PG_USER;
